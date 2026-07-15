@@ -12,8 +12,8 @@ A research-oriented deep learning project for brain tumor segmentation using the
 
 ## Dataset
 
-Medical Segmentation Decathlon - Brain Tumour Dataset
-http://medicaldecathlon.com/dataaws/
+Medical Segmentation Decathlon - Brain Tumour Dataset </br>
+http://medicaldecathlon.com/dataaws/ </br>
 https://msd-for-monai.s3-us-west-2.amazonaws.com/Task01_BrainTumour.tar
 
 ## Repository Structure
