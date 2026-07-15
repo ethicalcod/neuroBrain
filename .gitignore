@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+.env
+
+# macOS
+.DS_Store
+._*
+
+# Colab
+sample_data/
+
+# Data
+Task01_BrainTumour/
+datasets/
+data/
+
+# Models
+checkpoints/
+*.pth
+*.pt
+
+# Logs
+logs/
+*.log
+
+# Results (optional)
+results/
+
+# VS Code
+.vscode/
+
+# Temporary files
+*.tmp
