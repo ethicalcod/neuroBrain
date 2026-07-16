@@ -24,6 +24,37 @@ The first exploratory visualization compares the four MRI modalities together wi
 
 ![MRI Modalities](figures/01_modalities_overview.png)
 
+---
+
+## MRI Preprocessing
+
+Before training a deep learning model, MRI intensity distributions were analyzed to determine an appropriate preprocessing strategy.
+
+### Research Questions
+
+- Are MRI intensities standardized across modalities?
+- How much of each MRI volume consists of background voxels?
+- What normalization strategy is appropriate for this dataset?
+
+### Key Findings
+
+- MRI modalities exhibit different intensity distributions.
+- Histograms reveal a dominant spike at zero intensity due to background voxels.
+- Including background voxels biases intensity statistics.
+- Therefore, Z-score normalization is performed using only non-zero voxels.
+
+### Implementation
+
+A reusable preprocessing module was implemented in:
+
+src/preprocessing.py
+
+which performs non-zero voxel normalization for each MRI modality.
+
+### Normalization Example
+
+![Normalization Comparison](figures/02_normalization_comparison.png)
+
 ## Repository Structure
 
 ```
@@ -41,7 +72,7 @@ README.md
 -  Repository setup [done]
 -  Dataset exploration [done]
 -  MRI modality visualization [done]
--  Preprocessing
+-  Preprocessing [InProgress...]
 -  Baseline 3D U-Net
 -  Model evaluation
 -  Final report
