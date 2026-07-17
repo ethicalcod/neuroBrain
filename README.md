@@ -55,24 +55,78 @@ which performs non-zero voxel normalization for each MRI modality.
 
 ![Normalization Comparison](figures/02_normalization_comparison.png)
 
-## Repository Structure
 
-```
-notebooks/
-src/
-figures/
-results/
-README.md
+## Dataset Analysis
+
+### MRI Modalities
+
+![MRI Modalities](figures/01_modalities_overview.png)
+
+---
+
+### Intensity Normalization
+
+![Normalization](figures/02_normalization_comparison.png)
+
+---
+
+### Single Patient Class Distribution
+
+![Single Patient](figures/03_single_patient_class_distribution.png)
+
+---
+
+### Log Scale Distribution
+
+![Log Distribution](figures/04_single_patient_class_distribution_log.png)
+
+---
+
+### Dataset-wide Class Distribution
+
+![Dataset Distribution](figures/05_dataset_class_distribution.png)
+
+## Project Structure
+
+```text
+neuroBrain/
+├── docs/
+├── figures/
+├── models/
+├── notebooks/
+├── results/
+├── src/
+│   ├── config.py
+│   ├── preprocessing.py
+│   ├── dataset.py
+│   ├── model.py
+│   ├── train.py
+│   └── evaluate.py
+└── Task01_BrainTumour/
 ```
 
 ## Status
 
 ## Project Progress
 
--  Repository setup [done]
--  Dataset exploration [done]
--  MRI modality visualization [done]
--  Preprocessing [InProgress...]
--  Baseline 3D U-Net
--  Model evaluation
--  Final report
+### Milestone 1 — Dataset Exploration & Preprocessing
+
+- [x] Repository setup
+- [x] Dataset download and inspection
+- [x] MRI modality visualization
+- [x] Intensity distribution analysis
+- [x] Non-zero voxel normalization
+- [x] Single-patient tumor class distribution
+- [x] Dataset-wide class imbalance analysis
+- [x] Reusable preprocessing module
+- [x] Centralized project configuration
+
+### Upcoming
+
+- [ ] PyTorch Dataset
+- [ ] MONAI transforms
+- [ ] 3D U-Net implementation
+- [ ] Model training
+- [ ] Evaluation
+- [ ] Inference
+
