@@ -26,6 +26,70 @@ The first exploratory visualization compares the four MRI modalities together wi
 
 ---
 
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/ethicalcod/neuroBrain.git
+cd neuroBrain
+```
+
+### 2. Open Google Colab
+
+Upload or open any project notebook from the `notebooks/` directory.
+
+### 3. Run the automated project setup
+
+```bash
+python scripts/setup_project.py
+```
+
+The setup script automatically:
+
+- Installs required Python packages
+- Installs the `tree` utility (if needed)
+- Downloads the Medical Segmentation Decathlon (Task01 Brain Tumour) dataset (only if it is not already available)
+- Extracts the dataset
+- Verifies the project structure
+- Displays the project directory tree
+
+Once the setup completes successfully, the project is ready for preprocessing, model development, and training.
+
+---
+
+### Project Structure
+
+```
+neuroBrain/
+├── docs/
+├── figures/
+├── models/
+├── notebooks/
+├── results/
+├── scripts/
+│   ├── setup_dataset.py
+│   ├── setup_project.py
+│   └── verify_project.py
+├── src/
+│   ├── config.py
+│   └── preprocessing.py
+└── Task01_BrainTumour/
+```
+## Development Workflow
+
+For every new Google Colab session:
+
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Run:
+
+```bash
+python scripts/setup_project.py
+```
+
+After the setup completes successfully, continue working with the notebooks inside the `notebooks/` directory.
+
 ## MRI Preprocessing
 
 Before training a deep learning model, MRI intensity distributions were analyzed to determine an appropriate preprocessing strategy.
@@ -86,24 +150,6 @@ which performs non-zero voxel normalization for each MRI modality.
 
 ![Dataset Distribution](figures/05_dataset_class_distribution.png)
 
-## Project Structure
-
-```text
-neuroBrain/
-├── docs/
-├── figures/
-├── models/
-├── notebooks/
-├── results/
-├── src/
-│   ├── config.py
-│   ├── preprocessing.py
-│   ├── dataset.py
-│   ├── model.py
-│   ├── train.py
-│   └── evaluate.py
-└── Task01_BrainTumour/
-```
 
 ## Status
 
