@@ -8,11 +8,17 @@ from torch.utils.data import DataLoader, random_split
 
 from src.config import RANDOM_SEED, BATCH_SIZE
 from src.dataloader import BrainTumourDataset
+from src.transforms import get_train_transforms
 
 
 def create_dataloaders():
+    """
+    Create training and validation DataLoaders.
+    """
 
-    dataset = BrainTumourDataset()
+    dataset = BrainTumourDataset(
+        transform=get_train_transforms()
+    )
 
     train_size = int(0.8 * len(dataset))
     val_size = len(dataset) - train_size
