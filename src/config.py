@@ -1,4 +1,5 @@
 
+
 """
 NeuroBrain Project Configuration
 
@@ -45,3 +46,18 @@ NUM_WORKERS = 2
 # Visualization
 
 FIGURE_DPI = 300
+
+# Model Configuration
+
+IN_CHANNELS = 4          # FLAIR, T1, T1ce, T2
+OUT_CHANNELS = 4         # Background + 3 tumour classes
+
+FEATURES = (16, 32, 64, 128, 256)
+
+DROPOUT = 0.2
+
+# Patch Sampling Configuration
+
+PATCH_SIZE = (96, 96, 96)
+
+NUM_SAMPLES = 2

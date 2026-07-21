@@ -1,20 +1,22 @@
 
+"""
+Training and validation transforms for NeuroBrain.
+"""
+
 from monai.transforms import (
     Compose,
-    EnsureTyped,
     NormalizeIntensityd,
     RandFlipd,
-  
+    EnsureTyped,
 )
 
 
 def get_train_transforms():
-    """
-    Training transform pipeline.
-    """
 
     return Compose(
+
         [
+
             NormalizeIntensityd(
                 keys="image",
                 nonzero=True,
@@ -30,18 +32,28 @@ def get_train_transforms():
             EnsureTyped(
                 keys=["image", "label"],
             ),
+
         ]
+
     )
 
-def get_val_transforms():
-    return Compose([
-        NormalizeIntensityd(
-            keys="image",
-            nonzero=True,
-            channel_wise=True,
-        ),
 
-        EnsureTyped(
-            keys=["image", "label"],
-        ),
-    ])
+def get_val_transforms():
+
+    return Compose(
+
+        [
+
+            NormalizeIntensityd(
+                keys="image",
+                nonzero=True,
+                channel_wise=True,
+            ),
+
+            EnsureTyped(
+                keys=["image", "label"],
+            ),
+
+        ]
+
+    )
