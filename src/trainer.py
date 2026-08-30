@@ -293,6 +293,40 @@ class Trainer:
     # Checkpointing
     # ---------------------------------------------------------
 
+    def save_latest_checkpoint(
+        self,
+        epoch,
+        train_loss,
+        validation,
+    ):
+        """
+        Save the latest model state after every epoch.
+        """
+
+        checkpoint_path = os.path.join(
+            self.checkpoint_dir,
+            "latest.pt",
+        )
+
+        checkpoint = {
+            "epoch": epoch,
+            "model_state_dict": self.model.state_dict(),
+            "optimizer_state_dict": self.optimizer.state_dict(),
+            "train_loss": train_loss,
+            "val_loss": validation["val_loss"],
+            "class_dice": validation["class_dice"],
+            "tumor_dice": validation["tumor_dice"],
+            "mean_tumor_dice": validation["mean_tumor_dice"],
+            "learning_rate": self.optimizer.param_groups[0]["lr"],
+        }
+
+        torch.save(
+            checkpoint,
+            checkpoint_path,
+        )
+
+        return checkpoint_path
+
     def save_checkpoint(
         self,
         epoch,
@@ -512,6 +546,18 @@ class Trainer:
                 train_loss,
                 validation,
             )
+
+            # Always save the latest state so the experiment
+            # can be resumed after a Colab interruption.
+            latest_path = self.save_latest_checkpoint(
+                epoch,
+                train_loss,
+                validation,
+            )
+
+            print()
+            print("Latest checkpoint saved:")
+            print(latest_path)
 
             # Save best model based on
             # mean tumor-region Dice.
