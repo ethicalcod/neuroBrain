@@ -1,5 +1,4 @@
 
-
 """
 NeuroBrain Project Configuration
 
@@ -24,7 +23,7 @@ DOCS_DIR = PROJECT_ROOT / "docs"
 
 DATASET_NAME = "Task01_BrainTumour"
 
-DATASET_FILE_ID = "1A2IU8Sgea1h3fYLpYtFb2v7NYdMjvEhU"
+DATASET_FILE_ID = "17kUAGnj5OhVj8yrAOae6a37jT10R01eX"
 
 ARCHIVE_NAME = "Task01_BrainTumour.tar"
 
@@ -49,8 +48,8 @@ FIGURE_DPI = 300
 
 # Model Configuration
 
-IN_CHANNELS = 4          # FLAIR, T1, T1ce, T2
-OUT_CHANNELS = 4         # Background + 3 tumour classes
+IN_CHANNELS = 4
+OUT_CHANNELS = 4
 
 FEATURES = (16, 32, 64, 128, 256)
 

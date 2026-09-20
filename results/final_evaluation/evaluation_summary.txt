@@ -1,0 +1,23 @@
+neuroBrain — FINAL 97-PATIENT VALIDATION
+**************************************************
+Selected checkpoint: Epoch 18
+Checkpoint best metric: 0.7628627273
+Patients evaluated: 97 / 97
+ROI size: (96, 96, 96)
+Sliding-window overlap: 0.25
+
+Metric results:
+
+Background: 0.998762 +/- 0.000723
+Edema: 0.706147 +/- 0.140100
+Non-enhancing tumor: 0.473783 +/- 0.244984
+Enhancing tumor: 0.710570 +/- 0.237510
+Whole Tumor (WT): 0.845034 +/- 0.110645
+Tumor Core (TC): 0.735166 +/- 0.202817
+Enhancing Tumor (ET): 0.710570 +/- 0.237510
+Mean Tumor Dice: 0.630167 +/- 0.143570
+
+Mean Tumor Dice = mean of class 1, class 2, and class 3 Dice.
+Checkpoint selection metric is based on WT/TC/ET and is reported separately.
+
+These are validation-set results from 97 patients, not hidden test-set results.
