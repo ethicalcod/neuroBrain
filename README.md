@@ -4,6 +4,11 @@ neuroBrain is a research-oriented deep learning project for **3D brain tumor seg
 
 The project focuses on reproducible 3D medical-image segmentation under limited computational resources.
 
+
+**Author:** Shashi  
+**ORCID:** [0009-0003-5222-7653](https://orcid.org/0009-0003-5222-7653)
+
+
 ---
 
 ## Objective
@@ -39,14 +44,6 @@ The model performs four-class voxel-wise segmentation of brain tumor MRI volumes
 Medical Segmentation Decathlon - Brain Tumour Dataset </br>
 http://medicaldecathlon.com/dataaws/ </br>
 https://msd-for-monai.s3-us-west-2.amazonaws.com/Task01_BrainTumour.tar
-
-## Dataset Overview
-
-The dataset contains multimodal MRI scans with expert-annotated tumor segmentation masks.
-
-The first exploratory visualization compares the four MRI modalities together with the corresponding segmentation mask.
-
-![MRI Modalities](figures/01_modalities_overview.png)
 
 ---
 
@@ -113,50 +110,6 @@ Before training a deep learning model, MRI intensity distributions were analyzed
 - Including background voxels biases intensity statistics.
 - Therefore, Z-score normalization is performed using only non-zero voxels.
 
-### Implementation
-
-A reusable preprocessing module was implemented in:
-
-src/preprocessing.py
-
-which performs non-zero voxel normalization for each MRI modality.
-
-### Normalization Example
-
-![Normalization Comparison](figures/02_normalization_comparison.png)
-
-
-## Dataset Analysis
-
-### MRI Modalities
-
-![MRI Modalities](figures/01_modalities_overview.png)
-
----
-
-### Intensity Normalization
-
-![Normalization](figures/02_normalization_comparison.png)
-
----
-
-### Single Patient Class Distribution
-
-![Single Patient](figures/03_single_patient_class_distribution.png)
-
----
-
-### Log Scale Distribution
-
-![Log Distribution](figures/04_single_patient_class_distribution_log.png)
-
----
-
-### Dataset-wide Class Distribution
-
-![Dataset Distribution](figures/05_dataset_class_distribution.png)
-
-
 ## Dataset Brief
 
 Medical Segmentation Decathlon — Task01 BrainTumour.
@@ -175,6 +128,10 @@ The dataset itself is not stored in GitHub.
 ---
 
 ## Preprocessing
+
+A reusable preprocessing module was implemented in:
+
+src/preprocessing.py
 
 Each MRI modality is normalized using only non-zero voxels.
 
@@ -287,18 +244,86 @@ This result motivates future investigation of class imbalance, region-aware loss
 
 ## Figures
 
-The repository contains:
+### Dataset Exploration
 
-- `01_modalities_overview.png`
-- `02_normalization_comparison.png`
-- `03_single_patient_class_distribution.png`
-- `04_single_patient_class_distribution_log.png`
-- `05_dataset_class_distribution.png`
-- `06_final_validation_dice.png`
-- `07_tumor_region_dice.png`
-- `08_patient_dice_distribution.png`
-- `09_training_validation_loss.png`
-- `10_qualitative_segmentation_examples.png`
+#### MRI Modalities
+
+The four MRI modalities used by the model are FLAIR, T1, T1ce, and T2.
+
+![MRI Modalities](figures/01_modalities_overview.png)
+
+---
+
+#### Intensity Normalization
+
+Comparison of MRI intensity distributions before and after non-zero voxel normalization.
+
+![Normalization Comparison](figures/02_normalization_comparison.png)
+
+---
+
+#### Single-Patient Class Distribution
+
+Voxel-level distribution of segmentation classes for an individual patient.
+
+![Single Patient Class Distribution](figures/03_single_patient_class_distribution.png)
+
+---
+
+#### Log-Scale Class Distribution
+
+The same single-patient class distribution shown on a logarithmic scale to make minority tumor classes easier to visualize.
+
+![Log-Scale Class Distribution](figures/04_single_patient_class_distribution_log.png)
+
+---
+
+#### Dataset-Wide Class Distribution
+
+Aggregate segmentation class distribution across the complete training dataset.
+
+![Dataset-Wide Class Distribution](figures/05_dataset_class_distribution.png)
+
+
+### Model Evaluation
+
+#### Final Validation Dice Scores
+
+Mean Dice scores for the four segmentation classes across all 97 validation patients.
+
+![Final Validation Dice](figures/06_final_validation_dice.png)
+
+---
+
+#### Tumor Region Dice Scores
+
+Patient-level Dice performance for Whole Tumor (WT), Tumor Core (TC), and Enhancing Tumor (ET).
+
+![Tumor Region Dice](figures/07_tumor_region_dice.png)
+
+---
+
+#### Patient-Level Dice Distribution
+
+Distribution of mean tumor Dice scores across the 97 validation patients.
+
+![Patient Dice Distribution](figures/08_patient_dice_distribution.png)
+
+---
+
+#### Training and Validation Loss
+
+Training and validation loss across the 20-epoch formal experiment.
+
+![Training and Validation Loss](figures/09_training_validation_loss.png)
+
+---
+
+#### Qualitative Segmentation Examples
+
+Representative qualitative comparisons between the MRI input, ground-truth segmentation, and model prediction.
+
+![Qualitative Segmentation Examples](figures/10_qualitative_segmentation_examples.png)
 
 ---
 
